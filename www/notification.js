@@ -89,8 +89,12 @@ module.exports = {
 
         _buttonLabels = convertButtonLabels(_buttonLabels);
 
-        var _defaultText = (defaultText || "");
-        exec(resultCallback, null, "Notification", "prompt", [_message, _title, _buttonLabels, _defaultText]);
+        if (defaultText && typeof defaultText === "boolean") {
+            exec(resultCallback, null, "Notification", "promptPassword", [_message, _title, _buttonLabels, ""]);
+        } else {
+            var _defaultText = (defaultText || "");
+            exec(resultCallback, null, "Notification", "prompt", [_message, _title, _buttonLabels, _defaultText]);
+        }
     },
 
     /**

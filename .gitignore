@@ -11,9 +11,10 @@ Thumbs.db
 *.log
 *.swp
 *.user
+*.iml
 
 node_modules
-
+.idea/
 
 
 
